@@ -1,11 +1,13 @@
 body {
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
+  color: #000;
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
@@ -31,7 +33,7 @@ input {
 
 button {
   padding: 10px;
-  background-color: #007bff;
+  background:linear-gradient(45.7deg, rgb(196, 108, 179) 11.9%, rgb(150, 109, 225) 33.9%,  rgb(98, 159, 228) 100.8%);
   color: #fff;
   border: none;
   border-radius: 4px;
