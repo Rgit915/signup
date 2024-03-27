@@ -48,7 +48,19 @@
   </main>
 
   <script>
-   
+    // Destructure the useFormik hook from the Formik global object
+    const { useFormik } = window.Formik;
+  //Create a Formik form instance
+  const formik = useFormik ({
+    //Initial value for form fields
+    initialValues: {
+      firstName: '',
+      lastName: '',
+      email:'',
+      password: '',
+    },
+    
+  })
   </script>
 </body>
 
