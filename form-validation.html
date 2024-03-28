@@ -48,19 +48,54 @@
   </main>
 
   <script>
-    // Destructure the useFormik hook from the Formik global object
-    const { useFormik } = window.Formik;
-  //Create a Formik form instance
-  const formik = useFormik ({
-    //Initial value for form fields
-    initialValues: {
-      firstName: '',
-      lastName: '',
-      email:'',
-      password: '',
-    },
-    
-  })
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('signupForm');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+      const emailError = document.getElementById('emailError');
+      const passwordError = document.getElementById('passwordError');
+
+      // Add event listener for form submission
+      form.addEventListener('submit', event => {
+        event.preventDefault();
+        validateForm();
+      });
+
+      // Function to validate form fields
+      function validateForm() {
+        const emailValue = emailInput.value.trim();
+        const passwordValue = passwordInput.value.trim();
+        let isValid = true;
+
+        // Reset previous error messages
+        emailError.textContent = '';
+        passwordError.textContent = '';
+
+        // Email validation
+        if (!emailValue) {
+          emailError.textContent = '* Email is required';
+          isValid = false;
+        } else if (!/\S+@\S+\.\S+/.test(emailValue)) {
+          emailError.textContent = 'Invalid email format';
+          isValid = false;
+        }
+
+        // Password validation
+        if (!passwordValue) {
+          passwordError.textContent = '* Password is required';
+          isValid = false;
+        } else if (passwordValue.length < 6) {
+          passwordError.textContent = 'Password must be at least 6 characters long';
+          isValid = false;
+        }
+
+        if (isValid) {
+          // Form is valid, you can submit the data or perform other actions
+          alert('Form is valid. Submitting data...');
+
+        }
+      }
+    });
   </script>
 </body>
 
